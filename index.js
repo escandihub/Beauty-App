@@ -13,8 +13,14 @@ con.connection.connect( function(err) { //database connection
 })
 //middelware
 app.use(bodyParser.urlencoded({ extended: true}))
-app.use(cors())
+///app.use(cors())
 app.use(bodyParser.json())
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 require('./routes/route.js')(app)
 app.use(function(req, res, next) {
