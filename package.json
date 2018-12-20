@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "nodemon index.js"
   },
   "author": "EscandiHub",
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }

@@ -1,6 +1,7 @@
 const express = require('express')
 const chalk = require('chalk')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const con = require('./config/dataconfig.js')
 const app = express()
 const port = 4000
@@ -10,8 +11,9 @@ con.connection.connect( function(err) { //database connection
     if(err) throw err
     console.log(chalk.yellow('Estamos conectados'))
 })
-
-app.use(bodyParser.urlencoded({ extended: false}))
+//middelware
+app.use(bodyParser.urlencoded({ extended: true}))
+app.use(cors())
 app.use(bodyParser.json())
 
 require('./routes/route.js')(app)
